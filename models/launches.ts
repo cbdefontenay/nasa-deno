@@ -73,7 +73,7 @@ export function addOne(data: Launch) {
     data.flightNumber,
     Object.assign(data, {
       upcoming: true,
-      customers: ["Zero to Mastery", "NASA"],
+      customers: ["Cyprien de Fontenay", "NASA"],
     })
   );
 }
