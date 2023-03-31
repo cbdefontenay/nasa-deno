@@ -55,6 +55,7 @@ app.use(async (ctx) => {
     "/images/favicon.png",
     "/videos/space.mp4",
   ];
+
   if (fileWhiteList.includes(filePath)) {
     await send(ctx, filePath, {
       root: `${Deno.cwd()}/public`,
