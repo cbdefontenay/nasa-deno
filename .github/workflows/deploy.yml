@@ -25,4 +25,4 @@ jobs:
         with:
           project: "cbdefontenay-nasa-deno"
           entrypoint: "mod.ts" # 📝 Update the entrypoint
-          root: "src"
+          root: "."
