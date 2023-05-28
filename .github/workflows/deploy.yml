@@ -1,28 +1,22 @@
 name: Deploy
-on:
-  push:
-    branches: main
-  pull_request:
-    branches: main
+
+on: push
 
 jobs:
   deploy:
-    name: Deploy
     runs-on: ubuntu-latest
+
     permissions:
-      id-token: write # Needed for auth with Deno Deploy
-      contents: read # Needed to clone the repository
+      id-token: write # This is required to allow the GitHub Action to authenticate with Deno Deploy.
+      contents: read
 
     steps:
       - name: Clone repository
         uses: actions/checkout@v3
 
-      - name: Build step
-        run: deno task build # 📝 Update the build command(s)
-
-      - name: Upload to Deno Deploy
+      - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "nasa-deno"
-          entrypoint: "main.ts" # 📝 Update the entrypoint
-          root: "."
+          project: nasa-deno # the name of the project on Deno Deploy
+          entrypoint: index.html # the entrypoint to deploy
+          root: dist
