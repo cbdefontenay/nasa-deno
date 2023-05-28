@@ -1,6 +1,6 @@
 import { Router } from "https://deno.land/x/oak@v12.1.0/mod.ts";
-import * as planets from "../models/planets.ts";
-import * as launches from "../models/launches.ts";
+import * as planets from "./models/planets.ts";
+import * as launches from "./models/launches.ts";
 
 const router = new Router();
 

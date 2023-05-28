@@ -1,7 +1,8 @@
-import { join, parse, BufReader, pick, log, readAll } from "../src/deps.ts";
+import { join, parse, BufReader, pick, log, readAll } from "../deps.ts";
 
 type Planet = Record<string, string>;
 
+// deno-lint-ignore prefer-const
 let planets: Array<Planet>;
 
 export function filterHabitablePlanets(planets: Array<Planet>) {
@@ -23,7 +24,7 @@ export function filterHabitablePlanets(planets: Array<Planet>) {
 }
 
 async function loadPlanetData() {
-  const path = join("data", "kepler_exoplanets_nasa.csv");
+  const path = join(Deno.cwd(), "data", "kepler_exoplanets_nasa.csv");
 
   const file = await Deno.open(path);
   const bufReader = new BufReader(file);
